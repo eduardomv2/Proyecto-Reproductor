@@ -13,6 +13,10 @@ namespace Proyecto_Reproductor
 {
     public partial class registro : Form
     {
+
+       
+         
+
         public registro()
         {
             InitializeComponent();
@@ -69,15 +73,12 @@ namespace Proyecto_Reproductor
                 MessageBox.Show("Error al registrar el usuario: " + ex.Message);
             }
         }
-
-        private void btncerrar_Click(object sender, EventArgs e)
-        {
-            
-        }
+  
 
         private void btnBack_Click(object sender, EventArgs e)
         {
             this.Close();
         }
+       
     }
 }

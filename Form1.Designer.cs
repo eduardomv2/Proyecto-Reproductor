@@ -35,9 +35,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnacceder = new System.Windows.Forms.Button();
             this.btnlinkpass = new System.Windows.Forms.LinkLabel();
+            this.btngoogle = new System.Windows.Forms.Button();
             this.btnminimizar = new System.Windows.Forms.PictureBox();
             this.btncerrar = new System.Windows.Forms.PictureBox();
-            this.btngoogle = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.btnminimizar)).BeginInit();
@@ -46,7 +46,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(32)))), ((int)(((byte)(22)))), ((int)(((byte)(52)))));
             this.panel1.Controls.Add(this.pictureBox1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Left;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -70,7 +70,7 @@
             this.txtuser.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtuser.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtuser.ForeColor = System.Drawing.Color.DimGray;
-            this.txtuser.Location = new System.Drawing.Point(310, 95);
+            this.txtuser.Location = new System.Drawing.Point(287, 84);
             this.txtuser.Name = "txtuser";
             this.txtuser.Size = new System.Drawing.Size(415, 22);
             this.txtuser.TabIndex = 1;
@@ -84,11 +84,12 @@
             this.txtpassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.txtpassword.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtpassword.ForeColor = System.Drawing.Color.DimGray;
-            this.txtpassword.Location = new System.Drawing.Point(310, 153);
+            this.txtpassword.Location = new System.Drawing.Point(287, 142);
             this.txtpassword.Name = "txtpassword";
             this.txtpassword.Size = new System.Drawing.Size(415, 22);
             this.txtpassword.TabIndex = 2;
             this.txtpassword.Text = "CONTRASEÑA:";
+           
             this.txtpassword.Enter += new System.EventHandler(this.txtpassword_Enter);
             this.txtpassword.Leave += new System.EventHandler(this.txtpassword_Leave);
             // 
@@ -96,9 +97,9 @@
             // 
             this.label1.Font = new System.Drawing.Font("Microsoft JhengHei", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.DimGray;
-            this.label1.Location = new System.Drawing.Point(488, 9);
+            this.label1.Location = new System.Drawing.Point(432, 9);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(140, 33);
+            this.label1.Size = new System.Drawing.Size(85, 33);
             this.label1.TabIndex = 3;
             this.label1.Text = "LOGIN";
             // 
@@ -110,13 +111,14 @@
             this.btnacceder.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.btnacceder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnacceder.ForeColor = System.Drawing.Color.LightGray;
-            this.btnacceder.Location = new System.Drawing.Point(310, 228);
+            this.btnacceder.Location = new System.Drawing.Point(287, 217);
             this.btnacceder.Name = "btnacceder";
             this.btnacceder.Size = new System.Drawing.Size(361, 40);
             this.btnacceder.TabIndex = 3;
             this.btnacceder.Text = "ACCEDER";
             this.btnacceder.UseVisualStyleBackColor = false;
             this.btnacceder.Click += new System.EventHandler(this.btnacceder_Click);
+        
             // 
             // btnlinkpass
             // 
@@ -124,13 +126,23 @@
             this.btnlinkpass.AutoSize = true;
             this.btnlinkpass.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnlinkpass.LinkColor = System.Drawing.Color.DimGray;
-            this.btnlinkpass.Location = new System.Drawing.Point(472, 285);
+            this.btnlinkpass.Location = new System.Drawing.Point(420, 269);
             this.btnlinkpass.Name = "btnlinkpass";
             this.btnlinkpass.Size = new System.Drawing.Size(97, 17);
             this.btnlinkpass.TabIndex = 0;
             this.btnlinkpass.TabStop = true;
             this.btnlinkpass.Text = "Crear Cuenta";
             this.btnlinkpass.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.btnlinkpass_LinkClicked);
+            // 
+            // btngoogle
+            // 
+            this.btngoogle.Location = new System.Drawing.Point(654, 219);
+            this.btngoogle.Name = "btngoogle";
+            this.btngoogle.Size = new System.Drawing.Size(60, 36);
+            this.btngoogle.TabIndex = 8;
+            this.btngoogle.Text = "G";
+            this.btngoogle.UseVisualStyleBackColor = true;
+        
             // 
             // btnminimizar
             // 
@@ -154,16 +166,6 @@
             this.btncerrar.TabStop = false;
             this.btncerrar.Click += new System.EventHandler(this.btncerrar_Click);
             // 
-            // btngoogle
-            // 
-            this.btngoogle.Location = new System.Drawing.Point(677, 230);
-            this.btngoogle.Name = "btngoogle";
-            this.btngoogle.Size = new System.Drawing.Size(60, 36);
-            this.btngoogle.TabIndex = 8;
-            this.btngoogle.Text = "G";
-            this.btngoogle.UseVisualStyleBackColor = true;
-            this.btngoogle.Click += new System.EventHandler(this.btngoogle_Click);
-            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -186,6 +188,7 @@
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Form1_Paint);
+         
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.Form1_MouseDown);
             this.panel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

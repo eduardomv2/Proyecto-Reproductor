@@ -20,17 +20,16 @@ using Google.Apis.Util.Store;
 using System.Threading;
 using System.Diagnostics;
 using Google.Apis.Services;
-
-
-
+using YoutubeExplode.Channels;
 
 namespace Proyecto_Reproductor
 {
     public partial class Form1 : Form
     {
+
         public Form1()
         {
-           
+
             InitializeComponent();
 
             //Codigo para hacer el formulario del login redondo
@@ -45,7 +44,9 @@ namespace Proyecto_Reproductor
 
         [DllImport("user32.DLL", EntryPoint = "SendMessage")]
         private extern static void SendMessage(System.IntPtr hwnd, int wmsg, int wparam, int lparam);
-        //
+
+
+
 
 
         private void Form1_Load(object sender, EventArgs e)
@@ -80,6 +81,7 @@ namespace Proyecto_Reproductor
                 txtpassword.ForeColor = Color.LightGray;
                 txtpassword.UseSystemPasswordChar = true;
             }
+
         }
         //Sirve para cuando no estamos picandole al txt salga la palabra "CONTRASEÑA:"
         private void txtpassword_Leave(object sender, EventArgs e)
@@ -117,8 +119,12 @@ namespace Proyecto_Reproductor
 
         public static string userFullName = null;
 
+
+        //public static string Username = null;
         private void btnacceder_Click(object sender, EventArgs e)
         {
+            string usuario = txtuser.Text;
+
             try
             {
                 if (con.State == ConnectionState.Closed)
@@ -126,7 +132,7 @@ namespace Proyecto_Reproductor
                     con.Open();
                 }
                 string query = "select u_fullname, u_password from Users Where u_username = '" + txtuser.Text + "'";
-                SqlCommand cmd = new SqlCommand(query, con); 
+                SqlCommand cmd = new SqlCommand(query, con);
                 SqlDataReader sdr = cmd.ExecuteReader();
 
                 if (sdr.HasRows)
@@ -137,10 +143,12 @@ namespace Proyecto_Reproductor
                     {
 
                         userFullName = sdr["u_fullname"].ToString();
-                        Reproductor hs = new Reproductor();
+                        Reproductor hs = new Reproductor(usuario);                        
                         hs.Show();
                         hs.FormClosed += Logout_Click;
                         this.Hide();
+
+
                         
                         //MessageBox.Show("Login Successfull", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
@@ -149,7 +157,9 @@ namespace Proyecto_Reproductor
                         MessageBox.Show("Invalid Password..", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         txtpassword.Clear();
                         txtuser.Focus();
-                        
+
+
+
                     }
 
                 }
@@ -160,12 +170,13 @@ namespace Proyecto_Reproductor
                 }
                 con.Close();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 con.Close();
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-          
+
+
         }
 
 
@@ -186,11 +197,11 @@ namespace Proyecto_Reproductor
 
         private void Logout_Click(object sender, FormClosedEventArgs e)
         {
-           
+
             txtpassword.Clear();
             txtuser.Clear();
             this.Show();
-            txtuser.Focus();            
+            txtuser.Focus();
         }
 
         private void btnlinkpass_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
@@ -207,17 +218,6 @@ namespace Proyecto_Reproductor
             // Mostrar el formulario anterior después de cerrar el formulario de registro
             this.Show();
         }
-
-
-
-
-
-
-        private void btngoogle_Click(object sender, EventArgs e)
-        {
-           
-        }
-
 
     }
 }
